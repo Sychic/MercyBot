@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
+//set up dotenv for environmental variables
+require('dotenv').config();
 
 client.once('ready', () => {
 	console.log('Ready!');
@@ -15,4 +17,4 @@ client.on("guildMemberUpdate", event =>{
     console.log(new Discord.GuildMember(client,event.user,event.guild.id).premiumSince);
 })
 
-client.login(token);
+client.login(process.env.TOKEN);
