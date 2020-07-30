@@ -9,12 +9,12 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    console.log(new Discord.GuildMember(client,message.author,message.guild.id).premiumSince);
     console.log(message.cleanContent);
 });
 
-client.on("guildMemberUpdate", event =>{
-    console.log(new Discord.GuildMember(client,event.user,event.guild.id).premiumSince);
-})
+client.on('guildMemberAdd', member => {
+    let embed = new Discord.MessageEmbed().setTitle(`Welcome <@${member.user.id}>!`);
+    member.guild.channels.cache.find(channel => channel.id === "738491993390448811").send({embed});
+});
 
 client.login(process.env.TOKEN);
