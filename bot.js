@@ -13,7 +13,10 @@ client.on('message', message => {
 });
 
 client.on('guildMemberAdd', member => {
-    let embed = new Discord.MessageEmbed().setDescription(`Welcome <@${member.user.id}>!`).setColor("#F879C2");
+    let embed = new Discord.MessageEmbed()
+        .setDescription(`Welcome <@${member.user.id}>!`)
+        .setColor("#F879C2")
+        .setAuthor("Weeeelcomeeee ^-^ Be sure to read <#738470770317066356> and enjoy your stay");
     member.guild.channels.cache.find(channel => channel.id === "738491993390448811").send({embed});
 });
 
