@@ -3,11 +3,9 @@ const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 //set up dotenv for environmental variables
 require('dotenv').config();
-let love;
 
 client.once('ready', () => {
     console.log('Ready!');
-    love = member.guild.emojis.cache.find(emoji => emoji.id === "743467178246012940");
 });
 
 client.on('message', message => {
@@ -16,7 +14,7 @@ client.on('message', message => {
 
 client.on('guildMemberAdd', member => {
     let embed = new Discord.MessageEmbed()
-        .setDescription(`Hey <@${member.user.id}>, welcome to Mercy's Heaven! Be sure to read <#738470770317066356> and check <#739035968937394230> if you are intrested in getting some colours ! ${love}`)
+        .setDescription(`Hey <@${member.user.id}>, welcome to Mercy's Heaven! Be sure to read <#738470770317066356> and check <#739035968937394230> if you are intrested in getting some colours ! <:MH_Love:743467178246012940>`)
         .setColor("#F879C2");
     member.guild.channels.cache.find(channel => channel.id === "738491993390448811").send({embed});
 });
